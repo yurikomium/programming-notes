@@ -1,12 +1,12 @@
 # [Problem Number] - [Problem Name]
 
-**Date:**
-**Platform:**
-**Difficulty:**
+**Date:** 2025-06-11, 12  
+**Platform:** NeetCode 150 https://neetcode.io/problems/is-anagram
+**Difficulty:** Easy
 
 ## Problem Description
 
-問題の概要を簡潔に
+文字列がアナグラムかどうかの判定
 
 ## First Approach
 
@@ -28,15 +28,17 @@ class Solution:
 
 改善後のアプローチ
 
-- 時間計算量: O(?)
-- 空間計算量: O(?)
-- どこを改善したか
+- 時間計算量: O(n) = O(1) + O(n) + O(k) ※k は最大で n なので
+- 空間計算量: O(k)
+- どこを改善したか: あらゆるパターンを網羅, ハッシュマップを使用
 
 ## Key Learnings
 
 - "not in"の使い方 → 文字列に対して使う場合は線形探索なので O(m)
 - 文字もソート可能
 - ハッシュマップ: キーと値のペアを高速で格納・検索できるデータ構造
+- get の使い方: Python の辞書（ハッシュマップ）のメソッドで、安全にキーの値を取得する。存在しないキーに対して None を返す。
+- さまざまなパターンを想定し、不要な計算をしなくてすむように早めに終わらせる
 
 ## Mistakes Made
 
