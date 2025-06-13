@@ -1,5 +1,7 @@
 """
 パターン1: 手書きでのアナグラム判定
+- 時間計算量: O(n) = O(1) + O(n) + O(k) ※k は最大で n
+- 空間計算量: O(k)
 """
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -19,3 +21,27 @@ class Solution:
                 return False
         
         return True
+
+"""
+パターン2: PythonのCounter()を使ったアナグラム判定
+- 時間計算量: O(n)
+- 空間計算量: O(k)
+- パフォーマンスが最もよく、簡潔で読みやすい。
+"""
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+
+"""
+パターン3: ソートを使ったアナグラム判定
+- 時間計算量: O(n log n)
+- 空間計算量: O(n)
+
+sorted(s) → O(n log n)
+sorted(t) → O(n log n)
+リスト比較 → O(n)
+総計算量 = O(n log n) + O(n log n) + O(n) = O(n log n)
+"""
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s) == sorted(t)
