@@ -26,6 +26,7 @@ class Solution:
 パターン2: PythonのCounter()を使ったアナグラム判定
 - 時間計算量: O(n)
 - 空間計算量: O(k)
+- カウンターの使い方: Counter({'a': 3, 'b': 2, 'c': 1})
 - パフォーマンスが最もよく、簡潔で読みやすい。
 """
 class Solution:
