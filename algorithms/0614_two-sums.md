@@ -1,6 +1,6 @@
 # 001 - Contains Duplicate
 
-**Date:** 2025-06-14, 15
+**Date:** 2025-06-14, 15, 16
 **Platform:** NeetCode 150 https://neetcode.io/problems/two-integer-sum
 **Difficulty:** Easy
 
@@ -30,7 +30,8 @@
 
 - satisfy the condition: 条件を満たす
 - 値だけを使いたい場合は"for i in nums"で、インデックスを使う場合は range と len()を使う
--
+- 式を置き換える
+  - `nums[i] + nums[j] == target`から`difference == target - nums[i]`
 
 ## Mistakes Made
 
