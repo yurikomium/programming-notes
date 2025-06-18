@@ -1,4 +1,4 @@
-# 001 - Contains Duplicate
+# 003 - Two Sum
 
 **Date:** 2025-06-14, 15, 16
 **Platform:** NeetCode 150 https://neetcode.io/problems/two-integer-sum

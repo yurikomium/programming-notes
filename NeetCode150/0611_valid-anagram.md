@@ -1,4 +1,4 @@
-# [Problem Number] - [Problem Name]
+# 002 - Valid Anagram
 
 **Date:** 2025-06-11, 12, 13
 **Platform:** NeetCode 150 https://neetcode.io/problems/is-anagram
