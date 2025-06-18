@@ -22,22 +22,28 @@
 
 改善後のアプローチ
 
-- 時間計算量: O(?)
-- 空間計算量: O(?)
-- どこを改善したか: ハッシュマップ解法を使う
+- 時間計算量: O(n)
+- 空間計算量: O(n)
+- どこを改善したか: ハッシュマップを使う, 与式を置き換える
 
 ## Key Learnings
 
 - satisfy the condition: 条件を満たす
 - 値だけを使いたい場合は"for i in nums"で、インデックスを使う場合は range と len()を使う
 - 式を置き換える
-  - `nums[i] + nums[j] == target`から`difference == target - nums[i]`
+  - `nums[i] + nums[j] == target`から`difference == target - nums`
+- コンビネーションで考える場合は、for 文を最初から最後まで回すと重複が生じる
+- enumerate: リストの各要素に自動で番号（インデックス）を振ってくれる関数
 
-## Mistakes Made
+```
+fruits = ['りんご', 'バナナ', 'みかん']
 
--
--
+# enumerateが実際に作るものを見てみる
+enum_obj = enumerate(fruits)
+print("enumerateの中身:", list(enum_obj))
+# 出力: [(0, 'りんご'), (1, 'バナナ'), (2, 'みかん')]
+```
 
 ## Next Steps
 
--
+- 一度"Core Skills"に戻り、基礎を固めてから"NeetCode 150"に移る
