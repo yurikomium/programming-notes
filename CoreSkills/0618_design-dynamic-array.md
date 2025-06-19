@@ -26,9 +26,16 @@
 
 ## Key Learnings
 
--
--
--
+- Static Array と Dynamic Array の違い
+  - Static Array: サイズがコンパイル時または宣言時に決まり、実行中に変更できない
+  - Dynamic Array: サイズが実行時に変更可能で、容量が足りなくなったら自動的に拡張。メモリオーバーヘッドも起こりうる。
+- Capacity（容量）と Size（サイズ）の区別
+  - Capacity: メモリ上で確保済みの領域のサイズ
+  - Size: 実際に格納されている要素の数
+- Constructor: クラスのオブジェクトを作成するときに自動的に呼び出される特別なメソッド
+  - 特徴: 戻り値なし。
+  - Python の場合は `def __init__`
+- popback: 配列の末尾の要素を削除して取得する
 
 ## Next Steps
 
