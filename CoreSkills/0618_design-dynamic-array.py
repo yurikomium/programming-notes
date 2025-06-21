@@ -5,18 +5,21 @@ class DynamicArray:
     
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.length = 0
-        self.arr = [0] * self.capacity
+        self.length = 0 ## 最初は要素が0個
+        self.arr = [0] * self.capacity ## 指定した数だけ0で埋めた配列を作る→メモリ領域の確保
 
     # Get value at i-th index
     def get(self, i: int) -> int:
         return self.arr[i]
 
     # Set n at i-th index
+    ## 指定したインデックスの値を上書きする, 要素があってもnullを返す
+    ### set(1, 3)なら、arr[1]を3にする
     def set(self, i: int, n: int) -> None:
         self.arr[i] = n
 
     # Insert n in the last position of the array
+    ## pushbackは要素があってもnullを返す
     def pushback(self, n: int) -> None:
         if self.length == self.capacity:
             self.resize()

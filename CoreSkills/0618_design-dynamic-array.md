@@ -37,6 +37,7 @@
   - 特徴: 戻り値なし。
   - Python の場合は `def __init__`
 - popback: 配列の末尾の要素を削除して取得する
+- pushback: 配列の末尾に要素を追加する（Python だと`list.append()`）
 
 ## Next Steps
 
