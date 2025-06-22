@@ -6,23 +6,7 @@
 
 ## Problem Description
 
-問題の概要を簡潔に
-
-## First Approach
-
-最初に考えたアプローチ
-
-- 時間計算量: O(?)
-- 空間計算量: O(?)
-- なぜこの方法を選んだか
-
-## Optimized Solution
-
-改善後のアプローチ
-
-- 時間計算量: O(?)
-- 空間計算量: O(?)
-- どこを改善したか
+Dynamic Array を実装する
 
 ## Key Learnings
 
@@ -38,6 +22,7 @@
   - Python の場合は `def __init__`
 - popback: 配列の末尾の要素を削除して取得する
 - pushback: 配列の末尾に要素を追加する（Python だと`list.append()`）
+- self: クラス内のメソッドでは、定義として第一引数でインスタンスを受け取ることを示すために"self"を指定する。呼び出し時は、どのインスタンスに対する操作なのかを自動判定するので、引数として設定する必要がない。
 
 ## Next Steps
 
