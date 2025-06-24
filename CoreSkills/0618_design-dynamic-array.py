@@ -41,7 +41,7 @@ class DynamicArray:
         # Create new array of double capacity
         ## 配列は隣接メモリを確保するため、サイズを変更するには新しい配列を作成してコピーする必要がある
         self.capacity = 2 * self.capacity
-        new_arr = [0] * self.capacity 
+        new_arr = [0] * self.capacity  # 新しい配列を作成するときは最初に定義する
         
         # Copy elements to new_arr
         for i in range(self.length):
