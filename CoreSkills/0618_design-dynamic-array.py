@@ -4,9 +4,11 @@
 class DynamicArray:
     
     def __init__(self, capacity: int):
-        self.capacity = capacity
+        ## capacityとlengthは、DynamicArrayクラス自体の属性。arrは実際のデータを格納する配列。
+        self.capacity = capacity 
         self.length = 0 ## 最初は要素が0個
-        self.arr = [0] * self.capacity ## 指定した数だけ0で埋めた配列を作る→メモリ領域の確保
+        ## 指定した数だけ0で埋めた配列を作る→メモリ領域の確保
+        self.arr = [0] * self.capacity ## ここで初めてarrが定義される！！！
 
     # Get value at i-th index
     def get(self, i: int) -> int:
@@ -26,7 +28,7 @@ class DynamicArray:
             
         # insert at next empty position
         self.arr[self.length] = n
-        self.length += 1 ## 要素数を1つ増やす。これがないと常に同じ位置に上書きされてしまう
+        self.length += 1 ## 要素数を1つ増やす。これがないと常に同じ位置に上書きされてしまう ★★忘れがち注意
 
     # Remove the last element in the array
     def popback(self) -> int:
