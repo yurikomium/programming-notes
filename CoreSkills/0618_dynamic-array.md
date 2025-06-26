@@ -1,6 +1,6 @@
 # 001 - Design Dynamic Array
 
-**Date:** 2025-06-18 -
+**Date:** 2025-06-18 - 26
 **Platform:** Core Skills https://neetcode.io/problems/dynamicArray
 **Difficulty:** Easy
 
@@ -15,8 +15,8 @@ Dynamic Array を実装する
   - Static Array: サイズがコンパイル時または宣言時に決まり、実行中に変更できない。メモリ効率が良い。
   - Dynamic Array: サイズが実行時に変更可能で、容量が足りなくなったら自動的に拡張。メモリオーバーヘッドも起こりうる。長期的には効率的。利便性と引き換えに、時々の性能低下とメモリオーバーヘッドを受け入れる。
 - Capacity（容量）と length（サイズ）の区別
-  - Capacity: メモリ上で確保済みの領域のサイズ（= Size）
-  - length: 実際に格納されている要素の数
+  - Capacity: メモリ上で確保済みの領域の数
+  - length: 実際に格納されている要素の数（= Size）
   - 例えば capacity が 4 で要素が 3 つ入っている場合、length は 3→ サイズに 1 空きがある状態
 - Constructor: クラスのオブジェクトを作成するときに自動的に呼び出される特別なメソッド
   - 特徴: 戻り値なし。
