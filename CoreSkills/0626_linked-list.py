@@ -42,7 +42,7 @@ class LinkedList:
         head(ダミー) → [20] → [30] → None
 
         After:
-        new_node: [10] → [20] → [30] → None     ★ [20]につながれば、その後のノードも自動的に繋がる
+        new_node: [10] → [20] → [30] → None  ★ [20]につながれば、その後のノードも自動的に繋がる
                         ↗
         head(ダミー) → [20] → [30] → None
         """
@@ -61,28 +61,43 @@ class LinkedList:
             self.tail = new_node
 
     def insertTail(self, val: int) -> None:
-        self.tail.next = ListNode(val)
-        self.tail = self.tail.next
+        self.tail.next = ListNode(val) # 元々Noneだったtailのnextに新しいノードを追加
+        self.tail = self.tail.next # 更新しないと次の挿入時に間違った場所に挿入される
 
     def remove(self, index: int) -> bool:
         i = 0
         curr = self.head
+        # index回だけループして、削除したい要素の1つ手前のノードまでcurrを移動
         while i < index and curr:
             i += 1
-            curr = curr.next
+            curr = curr.next 
+        """ 
+        Before:
+        [1] -> [2] -> [3] -> [4] -> None
+                ↑      ↑      ↑
+                curr   curr.next  curr.next.next
+        """
         
-        # Remove the node ahead of curr
+        # curr.nextが削除対象。currがすでに末尾の場合、curr.nextはNoneになるので、削除できない
         if curr and curr.next:
-            if curr.next == self.tail:
+            if curr.next == self.tail: # 削除するノードがtailなら、tailを更新
                 self.tail = curr
-            curr.next = curr.next.next
+            curr.next = curr.next.next # 削除するノードのnextを、削除するノードの次のノードに繋ぎ直す
             return True
         return False
+        """
+        After:
+        [1] -> [2] -----> [4] -> None
+                ↑          ↑
+                curr      新しいcurr.next
+
+                [3] <- このノードはもう誰からも参照されない（削除される）
+        """
 
     def getValues(self) -> List[int]:
-        curr = self.head.next
+        curr = self.head.next # ダミーヘッドの次のノードから始める
         res = []
-        while curr:
+        while curr: # currがNoneになるまでループ
             res.append(curr.val)
             curr = curr.next
         return res
