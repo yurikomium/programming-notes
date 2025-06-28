@@ -24,20 +24,40 @@ class LinkedList:
         """
     
     def get(self, index: int) -> int:
-        curr = self.head.next
-        i = 0
-        while curr:
+        curr = self.head.next # 現在位置のノードを指す。ダミーノードの次（実際のデータの先頭）
+        i = 0 # 現在のインデックス
+        while curr: # currがNoneになるまで（リストの末尾に到達するまで）ループを続ける
             if i == index:
                 return curr.val
             i += 1
             curr = curr.next
         return -1  # Index out of bounds or list is empty
 
-    def insertHead(self, val: int) -> None:
-        new_node = ListNode(val)
-        new_node.next = self.head.next
-        self.head.next = new_node
-        if not new_node.next:  # If list was empty before insertion
+    def insertHead(self, val: int) -> None: # リストの先頭に新しいノードを挿入
+        new_node = ListNode(val) # 新しいノードを1つ作成（nextはデフォルトでNone）
+        new_node.next = self.head.next # 新しいノードのnextを現在の先頭に設定
+        """
+        Before:
+        new_node: [10] → None
+        head(ダミー) → [20] → [30] → None
+
+        After:
+        new_node: [10] → [20] → [30] → None     ★ [20]につながれば、その後のノードも自動的に繋がる
+                        ↗
+        head(ダミー) → [20] → [30] → None
+        """
+        self.head.next = new_node #ダミーの矢印の向きを変える
+        """
+        ダミーから始まるリストには、[10]がまだ含まれていない。
+        [10]を先頭にしたいのに、ダミーはまだ[20]を指している状態。
+
+        After:
+        head(ダミー) → [10] → [20] → [30] → None
+                        ↑
+                    new_node
+        これでダミーのノードのnextとnew_nodeのnextが同じ[10]を指すようになった。
+        """
+        if not new_node.next:  # 追加したノードが唯一のデータなら、それをtailにする
             self.tail = new_node
 
     def insertTail(self, val: int) -> None:
