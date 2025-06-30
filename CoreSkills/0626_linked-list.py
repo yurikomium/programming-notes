@@ -9,7 +9,7 @@ class LinkedList:
     def __init__(self):
         # Init the list with a 'dummy' node which makes 
         # removing a node from the beginning of list easier.
-        self.head = ListNode(-1) # ダミーノードを使うことで、リストの先頭からの削除を簡単にする
+        self.head = ListNode(-1) # 値が-1のListNodeを1つ作成。ダミーノードを使うことで、リストの先頭からの削除を簡単にする。ダミーの-1はただの目印。
         self.tail = self.head  # リストの末尾もダミーノードで初期化。最初は空のリストなので、headとtailは同じノードを指す
         ## 実際は混乱を招くので、プライベート化したり、外部からアクセスできないようにすることが多い
 
@@ -23,9 +23,9 @@ class LinkedList:
                             実際の先頭         tail
         """
     
-    def get(self, index: int) -> int:
+    def get(self, index: int) -> int: # 連結リストにはインデックスで直接アクセスできないので、順番にたどる必要がある
         curr = self.head.next # 現在位置のノードを指す。ダミーノードの次（実際のデータの先頭）
-        i = 0 # 現在のインデックス
+        i = 0 # 現在のインデックス（headは-1なので、実際のデータは0から始まる）
         while curr: # currがNoneになるまで（リストの末尾に到達するまで）ループを続ける
             if i == index:
                 return curr.val
