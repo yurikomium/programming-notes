@@ -24,8 +24,8 @@ class LinkedList:
         """
     
     def get(self, index: int) -> int: # 連結リストにはインデックスで直接アクセスできないので、順番にたどる必要がある
-        curr = self.head.next # 現在位置のノードを指す。ダミーノードの次（実際のデータの先頭）
-        i = 0 # 現在のインデックス（headは-1なので、実際のデータは0から始まる）
+        curr = self.head.next # 今どのノードにいるかという「実体」。この段階ではダミーノードの次（実際のデータの先頭）
+        i = 0 # 現在のインデックス = 今何番目にいるかという「順序情報」。（headは-1なので、実際のデータは0から始まる）
         while curr: # currがNoneになるまで（リストの末尾に到達するまで）ループを続ける
             if i == index:
                 return curr.val
@@ -57,7 +57,7 @@ class LinkedList:
                     new_node
         これでダミーのノードのnextとnew_nodeのnextが同じ[10]を指すようになった。
         """
-        if not new_node.next:  # 追加したノードが唯一のデータなら、それをtailにする
+        if not new_node.next:  # 追加したノードが唯一のデータ(=nextがNone)なら、それをtailにする。これがないとリストの構造が壊れる
             self.tail = new_node
 
     def insertTail(self, val: int) -> None:
