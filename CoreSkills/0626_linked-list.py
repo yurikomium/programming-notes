@@ -1,14 +1,13 @@
 # Singly Linked List Node
 class ListNode:
     def __init__(self, val, next_node=None):
-        self.val = val #このノードの値
+        self.val = val #このノードの値。ここで定義することで、ListNodeクラスのインスタンスはvalueを持つことができる
         self.next = next_node # "=None"はデフォルトを指す
 
 # Implementation for Singly Linked List
 class LinkedList:
     def __init__(self):
-        # Init the list with a 'dummy' node which makes 
-        # removing a node from the beginning of list easier.
+        # 後続の問題を考慮して、今回はheadとtailを明示的に持つ設計にしている
         self.head = ListNode(-1) # 値が-1のListNodeを1つ作成。ダミーノードを使うことで、リストの先頭からの削除を簡単にする。ダミーの-1はただの目印。
         self.tail = self.head  # リストの末尾もダミーノードで初期化。最初は空のリストなので、headとtailは同じノードを指す
         ## 実際は混乱を招くので、プライベート化したり、外部からアクセスできないようにすることが多い
@@ -27,8 +26,8 @@ class LinkedList:
         curr = self.head.next # 今どのノードにいるかという「実体」。この段階ではダミーノードの次（実際のデータの先頭）
         i = 0 # 現在のインデックス = 今何番目にいるかという「順序情報」。（headは-1なので、実際のデータは0から始まる）
         while curr: # currがNoneになるまで（リストの末尾に到達するまで）ループを続ける
-            if i == index:
-                return curr.val
+            if i == index: # 数字と数字（indexとi）を比較する。currはノードオブジェクトなので型が違うと比較できない
+                return curr.val # ListNodeクラスで定義されているので、curr.valで値を取得できる
             i += 1
             curr = curr.next
         return -1  # Index out of bounds or list is empty
