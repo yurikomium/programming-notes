@@ -45,7 +45,7 @@ class LinkedList:
                         ↗
         head(ダミー) → [20] → [30] → None
         """
-        self.head.next = new_node #ダミーの矢印の向きを変える
+        self.head.next = new_node #headから new_node への参照をつくる。ここにNoneが入っている可能性がある。
         """
         ダミーから始まるリストには、[10]がまだ含まれていない。
         [10]を先頭にしたいのに、ダミーはまだ[20]を指している状態。
