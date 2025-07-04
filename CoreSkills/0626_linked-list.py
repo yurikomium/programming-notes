@@ -3,6 +3,7 @@ class ListNode:
     def __init__(self, val, next_node=None):
         self.val = val #このノードの値。ここで定義することで、ListNodeクラスのインスタンスはvalueを持つことができる
         self.next = next_node # "=None"はデフォルトを指す
+        # 同じ変数名を使う必要があるので、間違えないように注意★
 
 # Implementation for Singly Linked List
 class LinkedList:
