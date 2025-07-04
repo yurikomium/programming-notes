@@ -45,7 +45,7 @@ class LinkedList:
                         ↗
         head(ダミー) → [20] → [30] → None
         """
-        self.head.next = new_node #headから new_node への参照をつくる。ここにNoneが入っている可能性がある。
+        self.head.next = new_node #headから new_node への参照をつくる。ここでself.head.nextにNoneが入っている可能性がある。
         """
         ダミーから始まるリストには、[10]がまだ含まれていない。
         [10]を先頭にしたいのに、ダミーはまだ[20]を指している状態。
@@ -56,7 +56,7 @@ class LinkedList:
                     new_node
         これでダミーのノードのnextとnew_nodeのnextが同じ[10]を指すようになった。
         """
-        if not new_node.next:  # 追加したノードが唯一のデータ(=nextがNone)なら、それをtailにする。これがないとリストの構造が壊れる
+        if not new_node.next:  # 追加したノードが唯一のデータ(=nextがNone)なら、それをtailにする。これがないとリストの構造が壊れる ★忘れがち★
             self.tail = new_node
 
     def insertTail(self, val: int) -> None:
@@ -67,6 +67,7 @@ class LinkedList:
         i = 0
         curr = self.head
         # index回だけループして、削除したい要素の1つ手前のノードまでcurrを移動
+        ## なぜならSingly Linked List）では前のノードへの参照がなく、削除したいノードの1つ手前にcurrを配置する必要があるから
         while i < index and curr:
             i += 1
             curr = curr.next 
@@ -74,7 +75,7 @@ class LinkedList:
         Before:
         [1] -> [2] -> [3] -> [4] -> None
                 ↑      ↑      ↑
-                curr   curr.next  curr.next.next
+              curr curr.next curr.next.next
         """
         
         # curr.nextが削除対象。currがすでに末尾の場合、curr.nextはNoneになるので、削除できない
