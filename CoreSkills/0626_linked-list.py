@@ -24,7 +24,7 @@ class LinkedList:
         """
     
     def get(self, index: int) -> int: # 連結リストにはインデックスで直接アクセスできないので、順番にたどる必要がある
-        curr = self.head.next # 今どのノードにいるかという「実体」。この段階ではダミーノードの次（実際のデータの先頭）
+        curr = self.head.next # 今どのノードにいるかという「実体」。この段階ではダミーノードの次（★★実際のデータの先頭）
         i = 0 # 現在のインデックス = 今何番目にいるかという「順序情報」。（headは-1なので、実際のデータは0から始まる）
         while curr: # currがNoneになるまで（リストの末尾に到達するまで）ループを続ける
             if i == index: # 数字と数字（indexとi）を比較する。currはノードオブジェクトなので型が違うと比較できない
@@ -57,19 +57,19 @@ class LinkedList:
                     new_node
         これでダミーのノードのnextとnew_nodeのnextが同じ[10]を指すようになった。
         """
-        if not new_node.next:  # 追加したノードが唯一のデータ(=nextがNone)なら、それをtailにする。これがないとリストの構造が壊れる ★忘れがち★
+        if not new_node.next:  # 追加したノードが唯一のデータ(=nextがNone)なら、それをtailにする。これがないとリストの構造が壊れる ★忘れがち★★
             self.tail = new_node
 
     def insertTail(self, val: int) -> None:
         self.tail.next = ListNode(val) # 元々Noneだったtailのnextに新しいノードを追加
         self.tail = self.tail.next # 更新しないと次の挿入時に間違った場所に挿入される
 
-    def remove(self, index: int) -> bool:
+    def remove(self, index: int) -> bool:  # ★間違い多し★
         i = 0
         curr = self.head
         # index回だけループして、削除したい要素の1つ手前のノードまでcurrを移動
         ## なぜならSingly Linked List）では前のノードへの参照がなく、削除したいノードの1つ手前にcurrを配置する必要があるから
-        while i < index and curr:
+        while i < index and curr: ## currがNoneになっていないかを確認
             i += 1
             curr = curr.next 
         """ 
@@ -81,7 +81,7 @@ class LinkedList:
         
         # curr.nextが削除対象。currがすでに末尾の場合、curr.nextはNoneになるので、削除できない
         if curr and curr.next:
-            if curr.next == self.tail: # 削除するノードがtailなら、tailを更新
+            if curr.next == self.tail: # 削除するノードがtailなら、tailを更新★★
                 self.tail = curr
             curr.next = curr.next.next # 削除するノードのnextを、削除するノードの次のノードに繋ぎ直す
             return True
