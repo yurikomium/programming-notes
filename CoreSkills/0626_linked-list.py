@@ -1,6 +1,6 @@
 # Singly Linked List Node
 class ListNode:
-    def __init__(self, val, next_node=None):
+    def __init__(self, val, next_node=None): ## ★ここは代入なので=を使う★
         self.val = val #このノードの値。ここで定義することで、ListNodeクラスのインスタンスはvalueを持つことができる
         self.next = next_node # "=None"はデフォルトを指す
         # 同じ変数名を使う必要があるので、間違えないように注意★
@@ -24,7 +24,7 @@ class LinkedList:
         """
     
     def get(self, index: int) -> int: # 連結リストにはインデックスで直接アクセスできないので、順番にたどる必要がある
-        curr = self.head.next # 今どのノードにいるかという「実体」。この段階ではダミーノードの次（★★実際のデータの先頭）
+        curr = self.head.next # ★★実際のデータの先頭。self.headにするとダミーノードが実際のデータとして扱われてしまう
         i = 0 # 現在のインデックス = 今何番目にいるかという「順序情報」。（headは-1なので、実際のデータは0から始まる）
         while curr: # currがNoneになるまで（リストの末尾に到達するまで）ループを続ける
             if i == index: # 数字と数字（indexとi）を比較する。currはノードオブジェクトなので型が違うと比較できない
@@ -69,7 +69,7 @@ class LinkedList:
         curr = self.head
         # index回だけループして、削除したい要素の1つ手前のノードまでcurrを移動
         ## なぜならSingly Linked List）では前のノードへの参照がなく、削除したいノードの1つ手前にcurrを配置する必要があるから
-        while i < index and curr: ## currがNoneになっていないかを確認
+        while i < index and curr: ## currがNoneになっていないかを確認→なっているとエラーになるため★★
             i += 1
             curr = curr.next 
         """ 
