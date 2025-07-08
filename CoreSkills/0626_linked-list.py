@@ -82,7 +82,7 @@ class LinkedList:
         # curr.nextが削除対象。currがすでに末尾の場合、curr.nextはNoneになるので、削除できない
         if curr and curr.next:
             if curr.next == self.tail: # 削除するノードがtailなら、tailを更新★★
-                self.tail = curr
+                self.tail = curr ## 向きを間違えがち
             curr.next = curr.next.next # 削除するノードのnextを、削除するノードの次のノードに繋ぎ直す
             return True
         return False
