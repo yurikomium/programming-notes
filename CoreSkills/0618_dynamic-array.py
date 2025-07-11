@@ -28,10 +28,10 @@ class DynamicArray:
             
         # insert at next empty position
         self.arr[self.length] = n
-        self.length += 1 ## 要素数を1つ増やす。これがないと常に同じ位置に上書きされてしまう ★★忘れがち注意
+        self.length += 1 ## 要素数を1つ増やす。これがないと常に同じ位置に上書きされてしまう ★★忘れがち注意★★
 
     # Remove the last element in the array
-    def popback(self) -> int:
+    def popback(self) -> int: ## 間違いやすい★★
         if self.length > 0:
             # ソフト削除: lengthを1つ減らすだけで、実際の要素は削除しない。
             # arr[length]以降はアクセスされないが、メモリ上には残る。
@@ -39,8 +39,7 @@ class DynamicArray:
         # return the popped element
         return self.arr[self.length]
 
-    def resize(self) -> None:
-        # Create new array of double capacity
+    def resize(self) -> None: # 容量不足の解決が目的であり、lengthは変わらない→lengthは操作しない
         ## 配列は隣接メモリを確保するため、サイズを変更するには新しい配列を作成してコピーする必要がある
         self.capacity = 2 * self.capacity
         new_arr = [0] * self.capacity  # 新しい配列を作成するときは最初に定義する
