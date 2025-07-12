@@ -32,7 +32,7 @@ class DynamicArray:
 
     # Remove the last element in the array
     def popback(self) -> int: ## 間違いやすい★★
-        if self.length > 0:
+        if self.length > 0: # if文がないとlengthが-1になってしまい、論理的に不正な状態になる
             # ソフト削除: lengthを1つ減らすだけで、実際の要素は削除しない。
             # arr[length]以降はアクセスされないが、メモリ上には残る。
             self.length -= 1 
