@@ -3,19 +3,19 @@ class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
-        self.prev = None
+        self.prev = None # 双方向リンク
 
 # Linked List implementation of Double Ended Queue
 class Deque:
     def __init__(self):
         # Create two dummy nodes and link them
         self.head = Node(-1)
-        self.tail = Node(-1)
+        self.tail = Node(-1) # 実際のデータノードはheadとtailの間に挿入される
         self.head.next = self.tail
         self.tail.prev = self.head
 
     def isEmpty(self) -> bool:
-        return self.head.next == self.tail
+        return self.head.next == self.tail # ダミーノードの間にデータがないかを確認
 
     def append(self, value) -> None:
         new_node = Node(value)
