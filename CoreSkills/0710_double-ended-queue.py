@@ -20,7 +20,7 @@ class Deque:
     def append(self, value) -> None:
         new_node = Node(value)
         last_node = self.tail.prev
-
+        # dequeでは新しいノードを追加するとき、nextとprevをつなぎ直す必要がある
         last_node.next = new_node
         new_node.prev = last_node
         new_node.next = self.tail
