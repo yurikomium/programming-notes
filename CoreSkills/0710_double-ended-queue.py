@@ -10,7 +10,7 @@ class Deque:
     def __init__(self):
         # Create two dummy nodes and link them
         self.head = Node(-1)
-        self.tail = Node(-1) # 実際のデータノードはheadとtailの間に挿入される
+        self.tail = Node(-1) # tailもダミーノードの扱い。実際のデータノードはheadとtailの間に挿入される
         self.head.next = self.tail
         self.tail.prev = self.head
 
