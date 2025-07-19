@@ -24,7 +24,7 @@ class Deque:
         last_node.next = new_node
         new_node.prev = last_node
         new_node.next = self.tail
-        self.tail.prev = new_node
+        self.tail.prev = new_node # ★忘れない
 
     def appendleft(self, value) -> None:
         new_node = Node(value)
