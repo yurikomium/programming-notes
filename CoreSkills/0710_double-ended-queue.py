@@ -38,13 +38,16 @@ class Deque:
     def pop(self) -> int:
         if self.isEmpty():
             return -1
+        # 削除するノードを特定
         last_node = self.tail.prev
+        # 返すべきデータを先に保存（nodeとしては削除されるが、値は返す必要がある）
+        ## nodeとvalueは分けて考える！！
         value = last_node.value
+        # ノードを削除
         prev_node = last_node.prev
-
         prev_node.next = self.tail
         self.tail.prev = prev_node
-
+        # 削除後でも値を返せる
         return value
 
     def popleft(self) -> int:
