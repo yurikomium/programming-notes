@@ -38,7 +38,7 @@ class Deque:
     def pop(self) -> int:
         if self.isEmpty():
             return -1
-        # 削除するノードを特定
+        # 削除するノードを特定 ★ノード参照を保存し、保存した参照から値を取得するほうが、意図が明確＋メンテナンスしやすい
         last_node = self.tail.prev
         # 返すべきデータを先に保存（nodeとしては削除されるが、値は返す必要がある）
         ## nodeとvalueは分けて考える！！
