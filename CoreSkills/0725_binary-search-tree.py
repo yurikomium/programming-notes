@@ -11,16 +11,18 @@ class TreeNode:
 # Implementation for Binary Search Tree Map
 class TreeMap:
     def __init__(self):
+        ## この時点では木は空
+        ## rootがわかればそこから全てのノードにアクセスできるため、rootだけを指定すればいい
         self.root = None
 
     def insert(self, key: int, val: int) -> None:
         newNode = TreeNode(key, val)
         if self.root == None:
             self.root = newNode
-            return
+            return # 早期終了のためのreturn。何も返さない。
 
         current = self.root
-        while True:
+        while True: # 適切な挿入位置を見つけるまで木を辿り続ける操作。各分岐にreturnがあるため、無限ループにはならない
             if key < current.key:
                 if current.left == None:
                     current.left = newNode
@@ -31,8 +33,8 @@ class TreeMap:
                     current.right = newNode
                     return
                 current = current.right
-            else:
-                current.val = val
+            else: # key==current.keyの場合
+                current.val = val # 同じkeyが存在する場合は、値を上書きする（一意性の保持）
                 return
 
     def get(self, key: int) -> int:
@@ -99,4 +101,3 @@ class TreeMap:
             self.inorderTraversal(root.left, result)
             result.append(root.key)
             self.inorderTraversal(root.right, result)
-            ii
