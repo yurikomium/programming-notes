@@ -16,6 +16,9 @@ Binary Tree を実装する
   - Root（＝トップノード）, Leaf Nodes
   - cycle を持たない, 同じ段の横はつながらない sibling nodes
   - Depth: root→children→children なら、Depth は 3
+- return の役割
+  - return は早期終了。if 文だけでなく関数全体を終了する。
+  - break は while ループを抜けるだけ。
 
 ## Memo
 

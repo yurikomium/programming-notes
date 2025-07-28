@@ -53,7 +53,7 @@ class TreeMap:
         return current.val if current else -1
 
     # Returns the node with the minimum key in the subtree
-    def findMin(self, node: TreeNode) -> TreeNode:
+    def findMin(self, node: TreeNode) -> TreeNode: # 値だけでなくノード全体が必要。classは返り値の型としても使用できる
         while node and node.left:
             node = node.left
         return node
