@@ -77,18 +77,20 @@ class TreeMap:
         elif key < curr.key:
             curr.left = self.removeHelper(curr.left, key)
         else:
-            if curr.left == None: ## 葉ノード（左右の子がないノード）の場合はこの条件に入る
+            if curr.left == None: 
+                ## 葉ノード（左右の子がないノード）の場合はこの条件に入る
                 # Replace curr with right child
                 return curr.right
             elif curr.right == None:
                 # Replace curr with left child
                 return curr.left
-            else:
+            else: # 削除対象のノードが、左右両方の子を持つ場合
                 # Swap curr with inorder successor
-                minNode = self.findMin(curr.right)
-                curr.key = minNode.key
+                minNode = self.findMin(curr.right) ## 1.ノードの右部分木から最小のノードを見つける
+                curr.key = minNode.key　## 2.削除対象のノードのkeyを、見つけた最小ノードのkeyに置き換える
                 curr.val = minNode.val
-                curr.right = self.removeHelper(curr.right, minNode.key)
+                curr.right = self.removeHelper(curr.right, minNode.key) ## 3.見つけた最小ノードを削除するために、再帰的にremoveHelperを呼び出す
+                ## minNOdeは右部分木の最小値なので、左の子を持たない
         return curr
 
     def getInorderKeys(self) -> List[int]:
