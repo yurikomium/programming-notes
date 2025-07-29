@@ -50,7 +50,7 @@ class TreeMap:
 
     def getMin(self) -> int:
         current = self.findMin(self.root)
-        return current.val if current else -1
+        return current.val if current else -1 # 三項演算子。currentが存在する場合はその値を、存在しない場合は-1を返す
 
     # Returns the node with the minimum key in the subtree
     def findMin(self, node: TreeNode) -> TreeNode: # 値だけでなくノード全体が必要。classは返り値の型としても使用できる
@@ -69,7 +69,7 @@ class TreeMap:
 
     # Returns the new root of the subtree after removing the key
     def removeHelper(self, curr: TreeNode, key: int) -> TreeNode:
-        if curr == None:
+        if curr == None: # 削除対象のNodeが存在しない場合
             return None
 
         if key > curr.key:
@@ -77,7 +77,7 @@ class TreeMap:
         elif key < curr.key:
             curr.left = self.removeHelper(curr.left, key)
         else:
-            if curr.left == None:
+            if curr.left == None: ## 葉ノード（左右の子がないノード）の場合はこの条件に入る
                 # Replace curr with right child
                 return curr.right
             elif curr.right == None:
