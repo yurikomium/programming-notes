@@ -68,6 +68,7 @@ class TreeMap:
         self.root = self.removeHelper(self.root, key)
 
     # Returns the new root of the subtree after removing the key
+    ## 削除処理後の部分木の新しいルートノードを返す
     def removeHelper(self, curr: TreeNode, key: int) -> TreeNode:
         if curr == None: # 削除対象のNodeが存在しない場合
             return None
@@ -90,7 +91,7 @@ class TreeMap:
                 curr.key = minNode.key　## 2.削除対象のノードのkeyを、見つけた最小ノードのkeyに置き換える
                 curr.val = minNode.val
                 curr.right = self.removeHelper(curr.right, minNode.key) ## 3.見つけた最小ノードを削除するために、再帰的にremoveHelperを呼び出す
-                ## minNOdeは右部分木の最小値なので、左の子を持たない
+                ## minNodeは右部分木の最小値なので、左の子を持たない
         return curr
 
     def getInorderKeys(self) -> List[int]:
