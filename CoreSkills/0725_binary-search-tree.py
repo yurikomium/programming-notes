@@ -76,6 +76,7 @@ class TreeMap:
             return None
 
         if key > curr.key:  # 2) 探している key が大きければ右部分木へ
+            ## 子が1つ以下のノードは、その子（あるいはNone）を返すだけで削除完了
             curr.right = self.removeHelper(curr.right, key)
         elif key < curr.key: # 3) 探している key が小さければ左部分木へ
             curr.left = self.removeHelper(curr.left, key)
@@ -95,7 +96,7 @@ class TreeMap:
                 curr.right = self.removeHelper(curr.right, minNode.key) ## 3.見つけた最小ノードを削除するために、再帰的にremoveHelperを呼び出す
                 ## minNodeは右部分木の最小値なので、左の子を持たない
         # 5) 再帰から戻ってきた部分木の根を返す
-        return curr
+        return curr # ★重要★
 
     def getInorderKeys(self) -> List[int]:
         result = []
