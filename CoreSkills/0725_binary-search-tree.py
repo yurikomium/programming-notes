@@ -105,6 +105,7 @@ class TreeMap:
 
     def inorderTraversal(self, root: TreeNode, result: List[int]) -> None:
         # 中順走査（inorder traversal）
+        ## （左→自分→右）と組み合わせることで、木全体のキーが小さい順から大きい順へと取り出される。
         if root != None:
             self.inorderTraversal(root.left, result)
             result.append(root.key)
