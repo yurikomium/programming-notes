@@ -104,6 +104,7 @@ class TreeMap:
         return result
 
     def inorderTraversal(self, root: TreeNode, result: List[int]) -> None:
+        # 中順走査（inorder traversal）
         if root != None:
             self.inorderTraversal(root.left, result)
             result.append(root.key)
