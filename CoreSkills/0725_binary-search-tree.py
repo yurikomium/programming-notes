@@ -110,3 +110,4 @@ class TreeMap:
             self.inorderTraversal(root.left, result)
             result.append(root.key)
             self.inorderTraversal(root.right, result)
+        ## ★ 「左探索 → 追加 → 右探索」という３フェーズを意識すると、追いやすくなる
