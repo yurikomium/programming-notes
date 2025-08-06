@@ -14,7 +14,9 @@ Binary Search を実装する
   - range が受け取れるのは「整数」のみ
     - 配列は受け取れずにエラーになる
 - Binary Search の仕組み
+  - 前提：sorted order である必要がある
   - 真ん中を見て、探索範囲を半分に絞る
+    - 辞書のイメージ
 
 ## Memo
 
