@@ -1,3 +1,28 @@
+## 反復二分探索
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+
+        while l <= r: # l > rになったら探索範囲が無効（存在しない範囲）
+            # (l + r) // 2 can lead to overflow
+            m = l + ((r - l) // 2)
+
+            if nums[m] > target:
+                r = m - 1
+            elif nums[m] < target:
+                l = m + 1
+            else:
+                return m
+        return -1
+### 計算量
+# - 時間計算量：O(log n)
+#   - n = 8の配列で何回比較するか数える
+#     - 最大4回 ≈ log₂(8) + 1
+# - 空間計算量：O(1)
+#   - 変数l, r, mを数える
+#     - 3単位
+
+
 ## 再帰的二分探索
 
 class Solution:
