@@ -3,7 +3,7 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
 
-        while l <= r: # l > rになったら探索範囲が無効（存在しない範囲）
+        while l <= r: # l > rになったら探索範囲が無効（存在しない範囲） ## 探索範囲が1つの要素になっても探索できるように"="が必要
             # (l + r) // 2 can lead to overflow
             m = l + ((r - l) // 2)
 
