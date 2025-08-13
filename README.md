@@ -11,27 +11,9 @@ Daily practice of algorithms, data structures, and programming concepts. One pro
 
 ## 📖 Study Approach
 
-- **One problem per day** with thorough analysis
 - **Multiple approaches** when possible (brute force → optimized)
 - **Time/space complexity** analysis for each solution
 - **Learning notes** to capture insights and patterns
-
-## 🗂️ Repository Structure
-
-```
-├── algorithms/                   # Daily algorithm practice
-│   ├── 001-duplicate-detection.py   # Problem solution
-│   ├── 001-duplicate-detection.md   # Learning notes & insights
-│   ├── 002-two-sum.py
-│   ├── 002-two-sum.md
-│   └── ...
-├── data-structures/             # Data structure fundamentals
-│   ├── hashset-basics.py
-│   ├── hashset-basics.md
-│   ├── arrays-operations.py
-│   └── arrays-operations.md
-└── resources/                   # Learning materials
-```
 
 ## 📝 File Format
 
