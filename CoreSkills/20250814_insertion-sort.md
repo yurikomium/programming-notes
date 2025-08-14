@@ -9,3 +9,6 @@
 Implement the insertion sort
 
 ## Key Learnings
+
+- 左から右へ、一つずつ要素を比べながら並べ替えていく
+- 今回の目的は、毎回の insert 後の状態を記録すること
