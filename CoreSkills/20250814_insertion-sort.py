@@ -28,10 +28,10 @@ class Solution:
 
             # Move elements that are greater than key one position ahead
             while j >= 0 and pairs[j].key > pairs[j + 1].key:
-                pairs[j], pairs[j + 1] = pairs[j + 1], pairs[j]
-                j -= 1
+                pairs[j], pairs[j + 1] = pairs[j + 1], pairs[j] ## スワップ=交換処理。j + 1 = i
+                j -= 1 ## より前の要素と比較するため
             
             # Clone and save the entire state of the array at this point
-            res.append(pairs[:])
+            res.append(pairs[:]) ## [:]はリストのコピーをつくる記号。本体ではなくコピーを保存。参照するとpairsが変わればresも変わるため。
 
         return res
