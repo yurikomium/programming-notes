@@ -27,6 +27,7 @@ class Solution:
             j = i - 1
 
             # Move elements that are greater than key one position ahead
+            ## jは配列のインデックスなので、"j >= 0"で範囲をチェック★★
             while j >= 0 and pairs[j].key > pairs[j + 1].key: ## iを使うと数字がズレるので、j + 1を使う点に注意。
                 pairs[j], pairs[j + 1] = pairs[j + 1], pairs[j] ## スワップ=交換処理。j + 1 = i
                 j -= 1 ## より前の要素と比較するため
