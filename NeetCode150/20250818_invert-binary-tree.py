@@ -2,16 +2,16 @@
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
-#         self.left = left
-#         self.right = right
+#         self.left = left   # TreeNode または None
+#         self.right = right   # TreeNode または None
 
 class Solution:
-    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]: # TreeNode型 または None
         if not root:
             return None
         queue = deque([root])
         while queue:
-            node = queue.popleft()
+            node = queue.popleft() # LeetCodeでは自動でimportされる
             node.left, node.right = node.right, node.left
             if node.left:
                 queue.append(node.left)
