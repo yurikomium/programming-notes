@@ -23,7 +23,7 @@ class Solution:
         n = len(pairs)
         res = []  # To store the intermediate states of the array
         
-        for i in range(n):
+        for i in range(n): ## i = 0からn-1まで！
             j = i - 1
 
             # Move elements that are greater than key one position ahead
