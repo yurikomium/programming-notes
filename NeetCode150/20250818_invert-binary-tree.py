@@ -18,3 +18,7 @@ class Solution:
             if node.right:
                 queue.append(node.right)
         return root
+
+
+
+        アルゴリズム選択とコード理解中
