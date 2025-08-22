@@ -7,16 +7,18 @@
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]: # TreeNode型 または None
-        if not root:
+        if not root: ## 空の木が入力される場合を想定しておく
             return None
-        queue = deque([root])
+        queue = deque([root]) ## rootを唯一の要素として持つリストを、キュー（deque）に変換している
         while queue:
             node = queue.popleft() # LeetCodeでは自動でimportされる
-            node.left, node.right = node.right, node.left
-            if node.left:
+            node.left, node.right = node.right, node.left # rootの左右の子ノードを入れ替える
+            if node.left: # Noneだとエラーになるため、存在チェックを行う
                 queue.append(node.left)
             if node.right:
                 queue.append(node.right)
+            # left, rightどちらも存在する場合は両方をキューに追加する。
+            ## 1回のループで1つのノードしか処理できない。自分の直接の子だけ入れ替える。
         return root
 
 
