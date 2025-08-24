@@ -10,7 +10,7 @@ class Solution:
         if not root: ## 空の木が入力される場合を想定しておく
             return None
         queue = deque([root]) ## rootを唯一の要素として持つリストを、キュー（deque）に変換している
-        while queue:
+        while queue: # 両方の子がない場合はpopleftされるのみで、queueが空になるまで続ける
             node = queue.popleft() # LeetCodeでは自動でimportされる。queueからは左端の要素が失われる
             node.left, node.right = node.right, node.left # rootの左右の子ノードを入れ替える
             if node.left: # Noneだとエラーになるため、存在チェックを行う（子がない場合は通過）

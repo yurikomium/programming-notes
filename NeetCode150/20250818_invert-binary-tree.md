@@ -39,6 +39,7 @@ Binary Tree を Invert（反転）する
     - 処理順序が予測可能なので、デバッグがしやすい
 
 - 探索方法
+
   - BFS:
     - **横（幅）**から順番に探索
     - キューを使用
@@ -48,10 +49,25 @@ Binary Tree を Invert（反転）する
     - First In, First Out
       - キュー以外にリストでも実現可能（ただし非効率）
   - DFS:
+
     - 深くまで進んでから次の分岐を探索
     - スタック（または再帰）を使用
       - 後に入れたものが先に出てくるデータ構造
     - LIFO（Last In, First Out）
+
+  - BFS 基本パターン
+
+  ```
+  # BFSテンプレート（どの問題でも同じ）
+  queue = [最初のノード]
+  while queue:
+    現在のノード = queue.pop(0)
+    # ここに具体的な処理を書く
+    if 左の子がある:
+        queue.append(左の子)
+    if 右の子がある:
+        queue.append(右の子)
+  ```
 
 ## Memo
 
