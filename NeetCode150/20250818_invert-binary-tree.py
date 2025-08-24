@@ -11,16 +11,12 @@ class Solution:
             return None
         queue = deque([root]) ## rootを唯一の要素として持つリストを、キュー（deque）に変換している
         while queue:
-            node = queue.popleft() # LeetCodeでは自動でimportされる
+            node = queue.popleft() # LeetCodeでは自動でimportされる。queueからは左端の要素が失われる
             node.left, node.right = node.right, node.left # rootの左右の子ノードを入れ替える
-            if node.left: # Noneだとエラーになるため、存在チェックを行う
-                queue.append(node.left)
+            if node.left: # Noneだとエラーになるため、存在チェックを行う（子がない場合は通過）
+                queue.append(node.left) # 処理できていない子ノードをキューに追加していく
             if node.right:
                 queue.append(node.right)
             # left, rightどちらも存在する場合は両方をキューに追加する。
             ## 1回のループで1つのノードしか処理できない。自分の直接の子だけ入れ替える。
-        return root
-
-
-
-        アルゴリズム選択とコード理解中
+        return root # 中身は反転済みの木を返す
