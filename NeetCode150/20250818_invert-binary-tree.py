@@ -23,6 +23,9 @@ class Solution:
             ## 1回のループで1つのノードしか処理できない。自分の直接の子だけ入れ替える。
         return root # 中身は反転済みの木を返す
 
+## 深さ優先探索（DFS）を用いた二分木の反転
+### スタックを用いる -> 右の子から先に処理する
+
 ## 再帰的なアプローチによる二分木の反転
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
@@ -34,3 +37,7 @@ class Solution:
         self.invertTree(root.right)
 
         return root
+
+
+
+メモ：再帰で書いてみる
