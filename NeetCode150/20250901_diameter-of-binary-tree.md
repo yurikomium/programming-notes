@@ -6,6 +6,8 @@
 
 ## Problem Description
 
+Diameter = 木の中の任意の 2 つのノード間の最長パスを求める
+
 ## Key Learnings
 
 -
