@@ -15,6 +15,9 @@ class Solution:
             res = max(res, left + right) ## 最長パスの追跡
 
             return 1 + max(left, right) ## 高さの計算 -> 左右の高さの合計値が最長パスかどうかを確認するために使う
+            ## 葉ノードがない場合は、return 1になる
+            ## returnの値とresの値が違うことに注意。returnはそのノードを根とする部分木の高さを表す
+            ## resは答えを記録するため、returnは情報を上に伝えるため。
 
         dfs(root)
-        return res
+        return res 
