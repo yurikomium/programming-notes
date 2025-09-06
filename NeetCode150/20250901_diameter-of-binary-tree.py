@@ -21,3 +21,9 @@ class Solution:
 
         dfs(root)
         return res 
+"""
+## Time and Space Complexity
+- Time Complexity: O(n) - 各ノードを一度だけ訪問する
+- Space Complexity: O(h) - 再帰呼び出しのスタックによる空間使用量。hは木の高さ。
+    - スタックの深度＝木の高さなので、最悪の場合はO(n)（木が一列に伸びている場合）、平均的にはO(log n)（バランスの取れた木の場合）。
+"""
