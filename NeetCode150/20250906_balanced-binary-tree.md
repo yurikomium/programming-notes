@@ -6,4 +6,7 @@
 
 ## Problem Description
 
+- 二分木の高さバランスを判定する
+  - この問題におけるバランスが取れている木：高さの差が 1 以下の二分木
+
 ## Key Learnings
