@@ -16,14 +16,17 @@ class Solution:
         if not root:
             return False
         ## rootの現在のノードから始まる部分木がsubRootと同じか？
+        ### 各ノードでsameTreeチェック
         if self.sameTree(root, subRoot):
             return True
         ## rootの左部分木、右部分木にsubRootと同じ部分木があるか？
+        ### ここで"subRoot"は変わらないのがポイント
         return (self.isSubtree(root.left, subRoot) or
                self.isSubtree(root.right, subRoot))
 
     # 2つの木が完全に同じ構造・値かを判定する（比較）
     def sameTree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        ## 子がないときはここに入る
         if not root and not subRoot:
             return True
         ## 値が同じなら、左の子同士・右の子同士も比較
