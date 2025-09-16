@@ -6,7 +6,7 @@
 #         self.right = right
 
 class Solution:
-    # rootの中でsubRootと同じ部分木があるかどうか（探索）
+    # rootの中でsubRootと同じ部分木があるかどうか（探索） = rootのすべてのノードを候補として試す
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         ## どんな木でも空の木は常に部分木に含まれる（何も探さなくていい）
         ### プログラムがクラッシュしないように追加しているエッジケース
@@ -20,7 +20,8 @@ class Solution:
         if self.sameTree(root, subRoot):
             return True
         ## rootの左部分木、右部分木にsubRootと同じ部分木があるか？
-        ### ここで"subRoot"は変わらないのがポイント
+        ### ここで"subRoot"は変わらないのがポイント（探しているもの（subRoot）は固定だから）
+        ### orを使うことで、左がTrueなら右は評価されず、即座に終了できる
         return (self.isSubtree(root.left, subRoot) or
                self.isSubtree(root.right, subRoot))
 
@@ -30,6 +31,8 @@ class Solution:
         if not root and not subRoot:
             return True
         ## 値が同じなら、左の子同士・右の子同士も比較
+        ### 対応する部分どうしを比較するので、rootもsubRootも子を比較する
+        ### 両方とも同じでないと同じ木ではないので、andを使う
         if root and subRoot and root.val == subRoot.val:
             return (self.sameTree(root.left, subRoot.left) and
                    self.sameTree(root.right, subRoot.right))
