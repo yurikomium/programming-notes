@@ -19,15 +19,15 @@ class Solution:
         ### 各ノードでsameTreeチェック
         if self.sameTree(root, subRoot):
             return True
-        ## rootの左部分木、右部分木にsubRootと同じ部分木があるか？
+        ## 探索の結果を統合する: rootの左部分木、右部分木にsubRootと同じ部分木があるか？
         ### ここで"subRoot"は変わらないのがポイント（探しているもの（subRoot）は固定だから）
-        ### orを使うことで、左がTrueなら右は評価されず、即座に終了できる
+        ### orを使うことで、左がTrueなら右は評価されず、即座に終了できる ★★
         return (self.isSubtree(root.left, subRoot) or
                self.isSubtree(root.right, subRoot))
 
     # 2つの木が完全に同じ構造・値かを判定する（比較）
     def sameTree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        ## 子がないときはここに入る
+        ## 子がないときはここに入る（両方とも子がない＝同じ構造）
         if not root and not subRoot:
             return True
         ## 値が同じなら、左の子同士・右の子同士も比較
