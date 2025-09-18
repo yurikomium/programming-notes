@@ -19,7 +19,8 @@ class Solution:
         ### 各ノードでsameTreeチェック
         if self.sameTree(root, subRoot):
             return True
-        ## 探索の結果を統合する: rootの左部分木、右部分木にsubRootと同じ部分木があるか？
+        ## 現在のノードでは見つからなかった-> 子ノードにあるかもしれない
+        ### 探索の結果を統合する: rootの左部分木、右部分木にsubRootと同じ部分木があるか？
         ### ここで"subRoot"は変わらないのがポイント（探しているもの（subRoot）は固定だから）
         ### orを使うことで、左がTrueなら右は評価されず、即座に終了できる ★★
         return (self.isSubtree(root.left, subRoot) or
