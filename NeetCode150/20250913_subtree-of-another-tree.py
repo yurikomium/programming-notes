@@ -29,6 +29,7 @@ class Solution:
     # 2つの木が完全に同じ構造・値かを判定する（比較）
     def sameTree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         ## 子がないときはここに入る（両方とも子がない＝同じ構造）
+        ### isSubtreeでは最初の呼び出し時のみNoneチェックするが、sameTreeは再帰的に呼び出されるので、ここでもNoneチェックが必要
         if not root and not subRoot:
             return True
         ## 値が同じなら、左の子同士・右の子同士も比較
