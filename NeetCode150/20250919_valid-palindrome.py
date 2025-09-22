@@ -25,7 +25,7 @@ Two Pointers
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        l, r = 0, len(s) - 1 ## 左右にポインタを用意
+        l, r = 0, len(s) - 1 ## 左右にポインタを用意（インデックスなので-1をつける）
 
         while l < r: ## 左右の比較すべきペアがまだ残っているか？の判定
             ## 内側のwhileは不要な文字をスキップする

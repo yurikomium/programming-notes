@@ -1,4 +1,4 @@
-# Binary Search
+# Two Pointers
 
 **Date:** 2025-09-19
 **Platform:** https://neetcode.io/problems/is-palindrome?list=neetcode150
