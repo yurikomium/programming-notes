@@ -17,7 +17,7 @@
 
 ## Optimized Solution
 
-HashSet を使用
+HashSet を使用(set は Python におけるハッシュセット　　　)
 
 - 時間計算量: O(n)
 - 空間計算量: O(n)
