@@ -26,14 +26,14 @@ Space Complexity: O(1) - 追加の空間を使用しないため
 """
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        l, r = 0, 1
-        maxP = 0
+        l, r = 0, 1 ## lは最安の買う日のインデックス、rは売る日候補のインデックス
+        maxP = 0 ## これまで見た“売る日”に対する最大利益
 
         while r < len(prices):
-            if prices[l] < prices[r]:
+            if prices[l] < prices[r]: ## 最安 l で買って今日 r に売ったらいくら？
                 profit = prices[r] - prices[l]
                 maxP = max(maxP, profit)
             else:
                 l = r
-            r += 1
+            r += 1 
         return maxP
