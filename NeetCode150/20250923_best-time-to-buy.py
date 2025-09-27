@@ -26,14 +26,15 @@ Space Complexity: O(1) - 追加の空間を使用しないため
 """
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
+        # rを1つ右へ進めながら、「最安 l で買って今日 r に売ったらいくら？」を見る。
         l, r = 0, 1 ## lは最安の買う日のインデックス、rは売る日候補のインデックス
         maxP = 0 ## これまで見た“売る日”に対する最大利益
 
         while r < len(prices):
-            if prices[l] < prices[r]: ## 最安 l で買って今日 r に売ったらいくら？
+            if prices[l] < prices[r]: ## 最安lで買ってrで売ると利益が正になる場合（利益が出るときだけ計算する）
                 profit = prices[r] - prices[l]
-                maxP = max(maxP, profit)
-            else:
-                l = r
+                maxP = max(maxP, profit) ## これまでの最大利益と比較
+            else: ## lのほうが高い場合、lをrに更新する（より安い買う日を見つけた）
+                l = r 
             r += 1 
         return maxP
