@@ -30,7 +30,7 @@ class Solution:
         l, r = 0, 1 ## lは最安の買う日のインデックス、rは売る日候補のインデックス
         maxP = 0 ## これまで見た“売る日”に対する最大利益
 
-        while r < len(prices):
+        while r < len(prices): # r が配列の末尾まで到達したら終了（配列外アクセスを防ぐ必要がある）
             if prices[l] < prices[r]: ## 最安lで買ってrで売ると利益が正になる場合（利益が出るときだけ計算する）
                 profit = prices[r] - prices[l]
                 maxP = max(maxP, profit) ## これまでの最大利益と比較
