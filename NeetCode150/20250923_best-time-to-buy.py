@@ -35,6 +35,7 @@ class Solution:
                 profit = prices[r] - prices[l]
                 maxP = max(maxP, profit) ## これまでの最大利益と比較
             else: ## lのほうが高い場合、lをrに更新する（より安い買う日を見つけた）
+                ### lとrのpricesが同じ値の場合、「利益を出さない」と考える
                 l = r 
             r += 1 
         return maxP

@@ -1,4 +1,35 @@
 """
+Stack
+
+考え方：開き括弧が来たらスタックに積み、閉じ括弧が来たらスタックの一番上の開き括弧とペアになるか確認する
+
+Time Complexity: O(n) - 文字列の長さを n とすると、各文字を一度ずつ処理するため
+Space Complexity: O(n) - 最悪の場合、すべての文字が開き括弧である場合、スタックに n 個の文字が積まれるため
+
+"""
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        ## 「まだ閉じられていない括弧」が上（末尾）になるように積まれたスタック
+        stack = [] ### 実質はリストだが、末尾に追加・削除する使い方によってスタックとして機能させる
+        closeToOpen = { ")" : "(", "]" : "[", "}" : "{" } ## 閉じ括弧から、「直前が何ならOKか」を判定
+
+        for c in s:
+            ## 閉じ括弧の場合
+            if c in closeToOpen:
+                ## stack[-1]は一番内側の開き括弧。現在の閉じ括弧がペアならpop、そうでなければ不正
+                if stack and stack[-1] == closeToOpen[c]:
+                    ## ペアならstackから取り除く
+                    stack.pop()
+                else:
+                    return False
+            else: ## 開き括弧ならスタックに追加
+                stack.append(c)
+        ## スタックが空なら有効な括弧列と判断
+        return True if not stack else False
+        
+
+"""
 Brute Force
 
 考え方：「有効な括弧列なら、隣り合う一致ペア (), {}, [] を消していくと最後に空文字になる」
