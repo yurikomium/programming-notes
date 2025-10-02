@@ -21,7 +21,7 @@ class Solution:
                 ## stack[-1]は一番内側の開き括弧。現在の閉じ括弧がペアならpop、そうでなければ不正
                 if stack and stack[-1] == closeToOpen[c]: ## 空のスタックだとエラーになる + 閉じ括弧を読んだときにstackが空だと対応する開き括弧がないので不正
                     ## ペアならstackから取り除く
-                    stack.pop()
+                    stack.pop() ### pop()と書いた場合、末尾の要素を取り除く
                 else:
                     return False
             else: ## 開き括弧ならスタックに追加
