@@ -13,12 +13,13 @@ class Solution:
         ## 「まだ閉じられていない括弧」が上（末尾）になるように積まれたスタック
         stack = [] ### 実質はリストだが、末尾に追加・削除する使い方によってスタックとして機能させる
         closeToOpen = { ")" : "(", "]" : "[", "}" : "{" } ## 閉じ括弧から、「直前が何ならOKか」を判定 ## 辞書型 dict[key: str, value: str]
+        ### 例: closeToOpen[")"] -> "("を参照できる
 
         for c in s:
             ## 閉じ括弧の場合
-            if c in closeToOpen:
+            if c in closeToOpen: ## keyが存在しないとcloseToOpen[c]でエラーになる
                 ## stack[-1]は一番内側の開き括弧。現在の閉じ括弧がペアならpop、そうでなければ不正
-                if stack and stack[-1] == closeToOpen[c]: ## 空の巣宅だとエラーになる + 閉じ括弧を読んだときにstackが空だと対応する開き括弧がないので不正
+                if stack and stack[-1] == closeToOpen[c]: ## 空のスタックだとエラーになる + 閉じ括弧を読んだときにstackが空だと対応する開き括弧がないので不正
                     ## ペアならstackから取り除く
                     stack.pop()
                 else:
