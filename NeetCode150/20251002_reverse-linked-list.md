@@ -6,11 +6,11 @@
 
 ## Problem Description
 
--
+- LinkedList を使ってポインった
 
 ## Key Learnings
 
--
+-　ノード同士のつなぎ目（next ポインタ）だけを付け替えて、データ本体は一切動かさない
 
 ## Memo
 

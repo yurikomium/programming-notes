@@ -16,7 +16,7 @@ class Solution:
         ### 例: closeToOpen[")"] -> "("を参照できる
 
         for c in s:
-            ## 閉じ括弧の場合
+            ## 閉じ括弧の場合 = cがcloseToOpenのkeyに存在する場合
             if c in closeToOpen: ## keyが存在しないとcloseToOpen[c]でエラーになる
                 ## stack[-1]は一番内側の開き括弧。現在の閉じ括弧がペアならpop、そうでなければ不正
                 if stack and stack[-1] == closeToOpen[c]: ## 空のスタックだとエラーになる + 閉じ括弧を読んだときにstackが空だと対応する開き括弧がないので不正
