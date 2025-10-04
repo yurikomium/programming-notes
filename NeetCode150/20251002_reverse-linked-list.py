@@ -1,6 +1,8 @@
 """
 Iteration
 
+Time Complexity: O(n) - リストの長さを n とすると、各ノードを一度ずつ処理するため
+Space Complexity: O(1) - 追加のメモリをほとんど使用しないため
 
 """
 
@@ -11,8 +13,8 @@ class Solution:
         prev, curr = None, head
 
         while curr:
-            temp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = temp
+            temp = curr.next ## curr.nextを書き換える前に、現状のnextを退避しておく
+            curr.next = prev ## 矢印を反転
+            prev = curr ## 反転済みリストの先頭はcurrに更新
+            curr = temp ## 退避しておいた元のnextに進む
         return prev
