@@ -5,7 +5,8 @@ Iteration
 
 class Solution:
     def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
-        dummy = node = ListNode()
+        ## ダミーノードを置く
+        dummy = node = ListNode() ### 新しいノードを作成し、nodeとdummyが同じノードを指すようにする
 
         while list1 and list2:
             if list1.val < list2.val:

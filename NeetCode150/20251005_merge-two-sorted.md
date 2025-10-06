@@ -6,7 +6,7 @@
 
 ## Problem Description
 
--
+- 2 本のソート済み連結リストをマージする
 
 ## Key Learnings
 
