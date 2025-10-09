@@ -13,8 +13,8 @@ class Solution:
         prev, curr = None, head
 
         while curr:
-            temp = curr.next ## curr.nextを書き換える前に、現状のnext以降を退避しておく
-            curr.next = prev ## 矢印を反転
+            temp = curr.next ## curr.nextを書き換える前に、現状のnext「以降」を退避しておく
+            curr.next = prev ## 矢印を反転（イメージとしては、末尾から順に矢印を反転させていく）。1周目では先頭のnextをNoneにする
             prev = curr ## 反転済みリストの先頭はcurrに更新
             curr = temp ## 退避しておいた元のnextに進む
         return prev
